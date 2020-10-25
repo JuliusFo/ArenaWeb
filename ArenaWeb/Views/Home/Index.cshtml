@@ -3,7 +3,7 @@
     <!-- User is authenticated-->
     @if (User?.Identity?.IsAuthenticated ?? false)
     {
-<h1>Hallo @User.Identity.Name,</h1>
+<h1>Hallo @User.Claims.FirstOrDefault(c => c.Type.Contains("displayname"))?.Value,</h1>
 
                 <p>
                     willkommen zurück zum Web-Interface der PokeArena.

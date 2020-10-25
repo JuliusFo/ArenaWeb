@@ -35,12 +35,12 @@
                         {
                             <!-- Account -->
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/account">@User.Identity.Name</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserController" asp-action="UserInformation">@User.Claims.FirstOrDefault(c => c.Type.Contains("displayname"))?.Value</a>
                             </li>
 
                             <!-- My Pokedex -->
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="CatchedPokemons" asp-action="Index" asp-route-id="@User.Claims.Where(c => c.Type.Contains("nameidentifier")).FirstOrDefault()?.Value">Mein Pokedex</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CatchedPokemons" asp-action="Index">Mein Pokedex</a>
                             </li>
 
                             <!-- Settings -->
