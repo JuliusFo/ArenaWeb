@@ -1,0 +1,42 @@
+﻿@model ArenaWeb.Data.Models.Entities.CatchedPokemon
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CatchedPokemon</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pokemon_AmountCatched)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pokemon_AmountCatched)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pokemon_AmountOnFightingTeam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pokemon_AmountOnFightingTeam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SdPokemon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SdPokemon.SdPokemon_Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Twitchuser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Twitchuser.Twitchuser_Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CatchedPokemon_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

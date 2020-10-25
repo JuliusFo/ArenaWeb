@@ -22,6 +22,8 @@ namespace ArenaWeb.Data.Models.Entities
 
 		public double ATK { get; set; }
 
+		public int Number { get; set; }
+
 		#endregion
 	}
 }

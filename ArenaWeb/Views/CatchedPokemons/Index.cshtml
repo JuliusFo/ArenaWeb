@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ArenaWeb.Transfer.TransferDexElement>
+
+@{
+    ViewData["Title"] = "Pokedex";
+}
+
+<h1>Mein Pokedex</h1>
+
+An dieser Stelle findest du eine Gesamtübersicht über alle existierenden Pokemon und welche du davon bereits gefangen hast. <br /> <br/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Gefangene Anzahl
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.Amount > 0)
+            {
+                <tr style="background-color:#2ECD00">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

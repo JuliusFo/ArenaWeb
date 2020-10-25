@@ -1,21 +1,20 @@
 ﻿<div class="jumbotron">
+
+    <!-- User is authenticated-->
     @if (User?.Identity?.IsAuthenticated ?? false)
     {
-        <h1>Welcome, @User.Identity.Name</h1>
+<h1>Hallo @User.Identity.Name,</h1>
 
-        <p>
-            @foreach (var claim in Context.User.Claims)
+                <p>
+                    willkommen zurück zum Web-Interface der PokeArena.
+                </p> <!-- anonymous user--> }
+            else
             {
-                <div><code>@claim.Type</code>: <strong>@claim.Value</strong></div>
-            }
-        </p>
+<h1>Hallo anonymer Benutzer,</h1>
+                <p>
+                    Es freut uns sehr dass du den Weg in das Web-Interface der PokeArena gefunden hast.
 
-        <a class="btn btn-lg btn-danger" href="/signout?returnUrl=%2F">Sign out</a>
-    }
-
-    else
-    {
-        <h1>Welcome, anonymous</h1>
-        <a class="btn btn-lg btn-success" href="/signin?returnUrl=%2F">Sign in</a>
-    }
+                    Wenn du bereits registriert bist, kannst du <a href="/signin?returnUrl=%2F">hier</a> klicken um dich mit deinem Twitch-Account einzuloggen.
+                    Ansonsten kannst du dich <a href="/register">hier</a> neu registrieren und dir dein Starter-Pokemon auswählen!
+                </p>}
 </div>
