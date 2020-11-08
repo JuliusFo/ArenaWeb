@@ -1,0 +1,18 @@
+﻿@model ArenaWeb.Transfer.TransferUserElement
+
+@{
+    ViewData["Title"] = "Account-Informationen";
+}
+
+<h1>Über dich</h1>
+
+Hier findest du einige interessante Statistiken über deine Trainer-Karriere:
+<br />
+
+<b>@Html.DisplayFor(i => i.UserName)</b>, du hast dich am <b>@Html.DisplayFor(i => i.RegisterDt)</b> registriert und dabei <b>@Html.DisplayFor(i => i.StarterPokemon)</b> als Starter-Pokemon gewählt.
+<br />
+
+In deinen <b>@Html.DisplayFor(i => i.TotalDaysSinceRegister)</b> Tagen hast du <b>@Html.DisplayFor(i => i.TotalPokemonCatched)</b> Pokemon gefangen, davon <b>@Html.DisplayFor(i => i.TotalUniquePokemonCatched)</b> unterschiedliche. Weiter So!
+<br />
+<br />
+Auch zu deinen Achievements lässt sich einiges sagen. Du hast bereits <b>@Html.DisplayFor(i => i.TotalAchievementsUnlocked)</b> Achievements freigeschaltet und davon <b>@Html.DisplayFor(i => i.TotalAchievementsDone)</b> bereits erfolgreich abgeschlossen.

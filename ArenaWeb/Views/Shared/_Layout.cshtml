@@ -35,7 +35,7 @@
                         {
                             <!-- Account -->
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="UserController" asp-action="UserInformation">@User.Claims.FirstOrDefault(c => c.Type.Contains("displayname"))?.Value</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">@User.Claims.FirstOrDefault(c => c.Type.Contains("displayname"))?.Value</a>
                             </li>
 
                             <!-- My Pokedex -->
