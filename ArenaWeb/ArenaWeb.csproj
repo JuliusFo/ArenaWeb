@@ -29,7 +29,6 @@
   <ItemGroup>
     <Folder Include="Data\Models\EntityConfigurations\" />
     <Folder Include="Views\Settings\" />
-    <Folder Include="Views\Register\" />
   </ItemGroup>
 
 </Project>
