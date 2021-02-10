@@ -43,6 +43,11 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="CatchedPokemons" asp-action="Index">Mein Pokedex</a>
                             </li>
 
+                            <!-- Team -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="Index">Team</a>
+                            </li>
+
                             <!-- Settings -->
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Authentification/SignIn">Einstellungen</a>
@@ -63,12 +68,12 @@
 
                         <!-- About -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">About</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">Über</a>
                         </li>
 
                         <!-- Impressum -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Impressum</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Privacy" asp-action="Index">Impressum</a>
                         </li>
                     </ul>
                 </div>

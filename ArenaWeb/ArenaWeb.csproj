@@ -28,8 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Models\EntityConfigurations\" />
-    <Folder Include="Views\About\" />
-    <Folder Include="Views\Privacy\" />
     <Folder Include="Views\Settings\" />
     <Folder Include="Views\Register\" />
   </ItemGroup>
