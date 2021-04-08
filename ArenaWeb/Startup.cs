@@ -17,102 +17,89 @@ using Microsoft.Extensions.Hosting;
 
 namespace ArenaWeb
 {
-    public class Startup
-    {
-        #region Fields
+	public class Startup
+	{
+		#region Fields
 
 
 
-        #endregion
+		#endregion
 
-        #region Constructor
+		#region Constructor
 
-        public Startup(IConfiguration configuration, IHostEnvironment hostingEnvironment)
-        {
-            Configuration = configuration;
-            HostingEnvironment = hostingEnvironment;
-        }
+		public Startup(IConfiguration configuration, IHostEnvironment hostingEnvironment)
+		{
+			Configuration = configuration;
+			HostingEnvironment = hostingEnvironment;
+		}
 
-        #endregion
+		#endregion
 
-        #region Properties
+		#region Properties
 
-        public IConfiguration Configuration { get; }
+		public IConfiguration Configuration { get; }
 
-        public IHostEnvironment HostingEnvironment { get; }
+		public IHostEnvironment HostingEnvironment { get; }
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //services.AddRazorPages();
+		public void ConfigureServices(IServiceCollection services)
+		{
+			//services.AddRazorPages();
 
-            services.AddRouting();
+			services.AddRouting();
 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
+			services.AddAuthentication(options =>
+			{
+				options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			})
 
-            .AddCookie(options =>
-            {
-                options.LoginPath = "/signin";
-                options.LogoutPath = "/signout";
-            })
-            
-            .AddTwitch(options =>
-            {
-                options.ClientId = SecretReader.GetValue("client_id");
-                options.ClientSecret = SecretReader.GetValue("client_secret");
-                options.CallbackPath = "/processlogin";
-            });
+			.AddCookie(options =>
+			{
+				options.LoginPath = "/signin";
+				options.LogoutPath = "/signout";
+			})
 
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).UseLazyLoadingProxies());
+			.AddTwitch(options =>
+			{
+				options.ClientId = SecretReader.GetValue("client_id");
+				options.ClientSecret = SecretReader.GetValue("client_secret");
+				options.CallbackPath = "/processlogin";
+			});
 
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
-        }
+			services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).UseLazyLoadingProxies());
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+			services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
+		}
 
-            //app.UseHttpsRedirection();
-            app.UseStaticFiles();
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		{
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+			}
+			else
+			{
+				app.UseExceptionHandler("/Error");
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				app.UseHsts();
+			}
 
-            app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
+			//app.UseHttpsRedirection();
+			app.UseStaticFiles();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapDefaultControllerRoute();
-            });
-        }
+			app.UseRouting();
+			app.UseAuthentication();
+			app.UseAuthorization();
 
-        public string GetDatabaseConnection()
-        {
-            var fileStream = new FileStream("C:/Temp/creds.txt", FileMode.Open, FileAccess.Read);
-            string text;
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapDefaultControllerRoute();
+			});
+		}
 
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
-            {
-                text = streamReader.ReadToEnd();
-            }
-
-            return text.Split('#')[2];
-        }
-
-        #endregion
-    }
+		#endregion
+	}
 }
