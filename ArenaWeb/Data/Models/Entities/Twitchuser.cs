@@ -13,7 +13,7 @@ namespace ArenaWeb.Data.Models.Entities
 
 		public bool Kz_Log_Enabled { get; set; }
 
-		public DateTime? Dt_Last_Userfight { get; set; }
+		public DateTimeOffset? Dt_Last_Userfight { get; set; }
 
 		public virtual IEnumerable<CatchedPokemon> CatchedPokemon { get; set; } = new List<CatchedPokemon>();
 

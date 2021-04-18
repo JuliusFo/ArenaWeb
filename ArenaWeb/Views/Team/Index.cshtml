@@ -1,8 +1,43 @@
-﻿@{
+﻿@model IEnumerable<ArenaWeb.Transfer.TransferFightingTeam>
+
+@{
     ViewData["Title"] = "Team";
 }
 <h1>Mein Team</h1>
 
-Gibts auch nicht.
+Hier kannst du die Pokemon festlegen, welche in einem Team-Kampf gegeneinander antreten.
 <br />
 <br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Aktion
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < 6; i++)
+        {
+            <tr>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    TBD
+                </td>
+                <td>
+                    TBD
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
