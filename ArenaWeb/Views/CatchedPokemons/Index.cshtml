@@ -21,6 +21,9 @@ An dieser Stelle findest du eine Gesamtübersicht über alle existierenden Pokem
             <th>
                 Gefangene Anzahl
             </th>
+            <th>
+                Team-Aktionen
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -39,6 +42,20 @@ An dieser Stelle findest du eine Gesamtübersicht über alle existierenden Pokem
                     <td>
                         @Html.DisplayFor(modelItem => item.Amount)
                     </td>
+                    <td>
+                        <button
+                                asp-action="AddToTeam"
+                                value="@item.Id"
+                                style="width:50px">
+                            +
+                        </button>
+                        <button 
+                                asp-action="RemoveFromTeam"
+                                value="@item.Id"
+                                style="width:50px">
+                            -
+                        </button>
+                    </td>
                 </tr>
             }
             else
@@ -52,6 +69,8 @@ An dieser Stelle findest du eine Gesamtübersicht über alle existierenden Pokem
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
                     </td>
                 </tr>
             }
