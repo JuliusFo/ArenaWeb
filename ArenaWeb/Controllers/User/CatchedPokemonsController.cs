@@ -55,14 +55,16 @@ namespace ArenaWeb.Controllers.User
 			return View(pokedexResult);
 		}
 
+		[HttpPost]
 		public async Task<IActionResult> AddToTeam(decimal id)
 		{
 			return null;
 		}
 
-		public async void RemoveFromTeam()
+		[HttpPost]
+		public async Task<IActionResult> RemoveFromTeam(decimal id)
 		{
-
+			return null;
 		}
 	}
 }

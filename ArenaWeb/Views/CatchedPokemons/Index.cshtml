@@ -43,18 +43,15 @@ An dieser Stelle findest du eine Gesamtübersicht über alle existierenden Pokem
                         @Html.DisplayFor(modelItem => item.Amount)
                     </td>
                     <td>
-                        <button
-                                asp-action="AddToTeam"
-                                value="@item.Id"
-                                style="width:50px">
-                            +
-                        </button>
-                        <button 
-                                asp-action="RemoveFromTeam"
-                                value="@item.Id"
-                                style="width:50px">
-                            -
-                        </button>
+                        <form asp-controller="CatchedPokemons" asp-action="AddToTeam" style="display: inline; width: 50px">
+                            <button type="submit" value="99">efewfewefw</button>
+                        </form>
+
+                        <form asp-controller="CatchedPokemons" asp-action="RemoveFromTeam" style="display: inline; width: 50px">
+                            <button type="submit" value="99">efewfewefw</button>
+                        </form>
+
+
                     </td>
                 </tr>
             }
